@@ -90,7 +90,7 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
 
 @st.cache_data
 def load_data():
-    return pd.read_csv(r"C:\Users\ASUS\OneDrive\Desktop\project 2\Churn_Modelling.csv")
+    return pd.read_csv("Churn_Modelling.csv")
 df = load_data()
 
 with tab1:
