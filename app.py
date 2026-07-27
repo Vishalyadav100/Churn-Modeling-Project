@@ -249,25 +249,21 @@ with tab3:
 
     # if st.button("🧹 Run Complete Preprocessing"):
     with st.spinner("Preprocessing Dataset..."):
-            (processed_df,X_train,X_test,y_train,y_test,feature_names) = preprocess_pipeline(
+                           
+        (processed_df,X_train,X_test,y_train,y_test,feature_names) = preprocess_pipeline(
              df,target,test_size,random_state)
 
 
 
 
-    st.success("Preprocessing Completed Successfully")
-    col1, col2 = st.columns(2)   # dataset shape
-    with col1:
-        st.metric(
-        "Training Samples",
-        len(X_train))
+        st.success("Preprocessing Completed Successfully")
+        col1, col2 = st.columns(2)   # dataset shape
+        with col1:
+           st.metric("Training Samples",len(X_train))
 
-    with col2:
-        st.metric(
-        "Testing Samples",
-        len(X_test))
+        with col2:st.metric("Testing Samples",len(X_test))
 
-    st.metric("Total Features",len(feature_names)) # feature count
+        st.metric("Total Features",len(feature_names)) # feature count
 
     st.subheader("Processed Dataset")
     st.dataframe(processed_df.head())
@@ -408,7 +404,7 @@ with tab8:
 
 with tab9:
 
-    st.header(" About Project")
+    st.header("About Project")
 
     st.markdown("""
 # Customer Churn Prediction Dashboard

@@ -31,10 +31,21 @@ def split_data(X,y,test_size,random_state): # train test and split
     return X_train, X_test, y_train, y_test
 
 
-def scale_data(X_train,X_test):
+def scale_data(X_train, X_test):
+
+    # Convert all columns to numeric
+    X_train = X_train.apply(pd.to_numeric, errors="coerce")
+    X_test = X_test.apply(pd.to_numeric, errors="coerce")
+
+    # Fill missing values
+    X_train = X_train.fillna(0)
+    X_test = X_test.fillna(0)
+
     scaler = StandardScaler()
-    X_train = scaler.fit_transform( X_train)
+
+    X_train = scaler.fit_transform(X_train)
     X_test = scaler.transform(X_test)
+
     return X_train, X_test
 
 
